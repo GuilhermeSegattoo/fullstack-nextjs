@@ -4,30 +4,39 @@ export const typography = {
     display1: {
       letterSpacing: {
         xs: '-0.4px',
+        lg: '-0.6px',
       },
       fontWeight: {
         xs: '800',
+        lg: '800',
       },
       lineHeight: {
         xs: '1.5',
+        lg: '1.5',
+
       },
       fontSize: {
         xs: '48px',
         md: '60px',
+        lg: '72px',
+
       },
     },
     heading1: {
       fontWeight: {
         xs: '700',
         md: '700',
+        lg: '700',
       },
       lineHeight: {
         xs: '1.5',
         md: '1.5',
+        lg: '1.5',
       },
       fontSize: {
         xs: '36px',
         md: '48px',
+        lg: '60px',
       },
     },
     heading2: {

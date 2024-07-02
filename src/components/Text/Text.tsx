@@ -6,7 +6,7 @@ import React from 'react';
 
 interface TextProps {
   variant?: ThemeTypographyVariants;
-  tag?:  string | 'p' | 'li' | 'h1' | 'h2' | 'h2';
+  tag?: 'p' | 'li' | 'h1' | 'h2' | 'h2' | string;
   children?: React.ReactNode;
   styleSheet?: StyleSheet;
   ref: any;
@@ -38,6 +38,5 @@ Text.defaultProps = {
   tag: 'p',
   variant: 'body2'
 };
-
 
 export default Text;

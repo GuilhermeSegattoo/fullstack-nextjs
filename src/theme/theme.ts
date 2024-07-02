@@ -1,5 +1,5 @@
 import { typography } from './defaults/typography'; 
-import { colors } from './defaults/colors';
+import { colors } from './defaults/colors'; 
 
 const theme = {
   typography,
