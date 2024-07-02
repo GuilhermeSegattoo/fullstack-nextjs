@@ -23,6 +23,8 @@ export default function Icon({ size, name, ...props }: IconProps) {
     <BaseComponent
       as="svg"
       styleSheet={{
+        display: 'flex',
+        gap: '1px',
         width: iconSizes[size],
         height: iconSizes[size],
       }}

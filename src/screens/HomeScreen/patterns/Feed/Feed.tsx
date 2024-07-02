@@ -73,7 +73,24 @@ Feed.Header = () => {
       <Text tag="h1" variant="heading2">
         Guilherme Segatto
       </Text>
+      <Box
+      styleSheet={{
+        flexDirection: 'row',
+        gap: '3px',
+      }}
+      >
+      <Link href='https://www.linkedin.com/in/guilhermesegatto'>
+      <Icon name="linkedin"/>
+      </Link>
 
+      <Link href='https://www.instagram.com/segattooow/'>
+      <Icon name="instagram"/>
+      </Link>
+
+      <Link href='https://github.com/GuilhermeSegattoo'>
+      <Icon name="github"/>
+      </Link>
+      </Box>
     </Box>
   );
 }
