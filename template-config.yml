@@ -1,0 +1,10 @@
+site:
+  title: "Guilherme Segatto - Timeline"
+  description: "Bem vindo a minha timeline pessoal"
+personal:
+  name: "Guilherme Segatto"
+  avatar: "https://github.com/guilhermesegattoo.png"
+  socialNetworks:
+    linkedln: "https://www.linkedin.com/in/guilhermesegatto"
+    instagram: "https://www.instagram.com/segattooow/"
+    github:  "https://github.com/GuilhermeSegattoo"
