@@ -1,6 +1,7 @@
 import Box from "@src/components/Box/Box";
 import Button from "@src/components/Button/Button";
 import Icon from "@src/components/Icon/Icon";
+import Link from "@src/components/Link/Link";
 import Text from "@src/components/Text/Text";
 import theme from "@src/theme/theme";
 import { useTheme } from "@src/theme/ThemeProvider";
@@ -30,16 +31,22 @@ export default function Menu() {
           alignItems: 'center',
           justifyContent: 'center',
           hover: {
-            backgroundColor: theme.colors.primary.x400,
+            backgroundColor: theme.colors.primary.x900,
           },
           focus: {
-            backgroundColor: theme.colors.primary.x600,
+            backgroundColor: theme.colors.primary.x100,
           },
         }}
       >
-        <Text>
+       <Link href="/sobre">
+       <Text
+       styleSheet={{
+        color: theme.colors.neutral.x200,
+       }}
+       >
           SG
         </Text>
+       </Link>
       </Button.Base>
 
       <Button.Base

@@ -7,7 +7,7 @@ export default function Background() {
     <Box
       styleSheet={{
         width: '100%',
-        height: '200px',
+        height: '400px',
         backgroundImage: `url("${imageUrl}")`,
         backgroundPosition: 'center',
         backgroundSize: 'cover',

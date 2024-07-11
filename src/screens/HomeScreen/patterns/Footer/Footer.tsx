@@ -10,7 +10,7 @@ export default function Footer() {
         backgroundColor: theme.colors.neutral.x900,
         color: theme.colors.neutral.x000,
         width: '100%',
-        height: '12px',
+        height: '120px',
         paddingHorizontal: '24px',
         paddingVertical: '24px',
         alignItems: 'center',
@@ -19,7 +19,7 @@ export default function Footer() {
       }}
     >
       <Text variant="body2">
-        Feito com ❤️ por Guilherme Segatto
+        Feito com ❤️ por Guilherme Segatto (Segattoow)
       </Text>
     </Box>
   )

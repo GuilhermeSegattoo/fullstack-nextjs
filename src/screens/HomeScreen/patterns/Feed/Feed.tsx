@@ -6,37 +6,41 @@ import Image from "@src/components/Image/Image";
 import Link from "@src/components/Link/Link";
 import Button from "@src/components/Button/Button";
 import { useTheme } from "@src/theme/ThemeProvider";
+import { useTemplateConfig } from "@src/services/template/TemplateConfigContext";
+import type { Post } from '@src/services/posts/PostsService';
+import { FeedPost } from './patterns/FeedPost';
+
 interface FeedProps {
   children: React.ReactNode;
 }
-
-export default function Feed({ children }: FeedProps) {
+export default function Feed({ children }) {
   const theme = useTheme();
-
   return (
     <Box
       styleSheet={{
         backgroundColor: theme.colors.neutral.x000,
-        marginTop: { xs: '-100px', md: '-100px', lg: '-100px' },
+        marginTop: '-228px',
         width: '100%',
-        maxWidth: { xs: '683px', lg: '683px' },
+        maxWidth: '683px',
         borderRadius: '8px',
-        paddingVertical: { xs: '40px', lg: '60px' },
-        paddingHorizontal: { xs: '32px', lg: '48px' },
+        paddingVertical: '40px',
+        paddingHorizontal: '32px',
       }}
     >
       {children}
     </Box>
-  );
+  )
 }
 
 Feed.Header = () => {
   const theme = useTheme();
+  const templateConfig = useTemplateConfig();
+  // console.log(templateConfig);
 
   return (
     <Box
       styleSheet={{
-        borderBottom: `7px solid ${theme.colors.primary.x200}`,
+        borderBottom: `1px solid ${theme.colors.neutral.x200}`,
         paddingBottom: '24px',
         marginBottom: '24px',
       }}
@@ -46,33 +50,38 @@ Feed.Header = () => {
           flexDirection: 'row',
           justifyContent: 'space-between',
           gap: '16px',
-          marginBottom: '16px',
+          marginBottom: '16px'
         }}
       >
         <Image
           styleSheet={{
-            width: { xs: '100px', md: '128px', lg: '138px' },
-            height: { xs: '100px', md: '128px', lg: '138px' },
+            width: { xs: '100px', md: '128px' },
+            height: { xs: '100px', md: '128px' },
             borderRadius: '100%',
           }}
-          src="https://github.com/guilhermesegattoo.png"
-          alt="Imagem de perfil do Guilherme Segatto"
+          src={templateConfig?.personal?.avatar}
+          alt="Imagem de Guilherme Segatto"
         />
 
-        <Box styleSheet={{ justifyContent: 'space-between' }}>
-          <Box styleSheet={{ flex: 1, justifyContent: 'space-between', display: { xs: 'none', md: 'flex', lg: 'flex' } }}>
-            <Button fullWidth colorVariant="primary" size="xl" href="/">Newsletter</Button>
-            <Button fullWidth colorVariant="accent" size="xl" href="/">Buy me a coffee</Button>
+        <Box
+          styleSheet={{
+            justifyContent: 'space-between',
+          }}
+        >
+          <Box styleSheet={{ flex: 1, justifyContent: 'space-between', display: { xs: 'none', md: 'flex' } }}>
+            <Link href={'/sobre'}><Button fullWidth colorVariant="primary" size="xl" href="/sobre">Sobre mim</Button></Link>
+            <Button fullWidth colorVariant="neutral" size="xl" href="/">Projetos</Button>
           </Box>
-          <Box styleSheet={{ flex: 1, justifyContent: 'space-between', display: { xs: 'flex', md: 'none', lg: 'none' } }}>
-            <Button fullWidth colorVariant="primary" size="xs" href="/">Newsletter</Button>
-            <Button fullWidth colorVariant="neutral" size="xs" href="/">Buy me a coffee</Button>
+          <Box styleSheet={{ flex: 1, justifyContent: 'space-between', display: { xs: 'flex', md: 'none' } }}>
+            <Button fullWidth colorVariant="primary" size="xs" href="/">Sobre mim</Button>
+            <Button fullWidth colorVariant="neutral" size="xs" href="/">Projetos</Button>
           </Box>
         </Box>
       </Box>
-      <Text tag="h1" variant="heading2">
-        Guilherme Segatto
+      <Text tag="h1" variant="heading4">
+        {templateConfig?.personal?.name}
       </Text>
+
       <Box
       styleSheet={{
         flexDirection: 'row',
@@ -92,15 +101,33 @@ Feed.Header = () => {
       </Link>
       </Box>
     </Box>
-  );
+  )
 }
 
-Feed.Posts = () => {
+interface FeedPostsProps {
+  posts: Post[];
+}
+
+Feed.Posts = ({ posts }: FeedPostsProps) => {
   return (
     <Box>
-      <Text>
-        Feed Posts
+      <Text variant="heading2" styleSheet={{ marginBottom: "27px" }}>
+        Últimas Atualizações
       </Text>
+      {posts.map(({ slug, title, metadata, image }) => {
+        const { date, excerpt, url, tags } = metadata;
+        return (
+          <FeedPost
+            key={slug}
+            title={title}
+            date={date}
+            excerpt={excerpt}
+            tags={tags}
+            url={url}
+            image={image}
+          />
+        )
+      })}
     </Box>
-  );
+  )
 }
