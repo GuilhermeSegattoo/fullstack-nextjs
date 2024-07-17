@@ -1,3 +1,4 @@
-# Gerenciando conteúdo build time com file system - [#02 NextJS FullStack]
+# - [ NextJS FullStack] - Portfolio Guilherme Segatto
 
+projeto desenvolvido em Next.js usando Typescript
 ...
