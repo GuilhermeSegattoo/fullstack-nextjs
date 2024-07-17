@@ -19,7 +19,7 @@ function HomeScreen(props: HomeScreenProps) {
     <Box
       tag="main"
       styleSheet={{
-        backgroundColor: theme.colors.primary.x700,
+        backgroundColor: theme.colors.neutral.x000,
         flex: 1,
         alignItems: 'center',
       }}
