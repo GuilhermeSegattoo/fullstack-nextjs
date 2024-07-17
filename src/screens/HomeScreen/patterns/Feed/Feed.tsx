@@ -19,7 +19,7 @@ export default function Feed({ children }) {
     <Box
       styleSheet={{
         backgroundColor: theme.colors.neutral.x000,
-        marginTop: '-228px',
+        marginTop: '-238px',
         width: '100%',
         maxWidth: '683px',
         borderRadius: '8px',

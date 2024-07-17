@@ -3,10 +3,13 @@ import Menu from "@src/screens/HomeScreen/patterns/Menu/Menu";
 import Link from "@src/components/Link/Link";
 import Background from "@src/screens/HomeScreen/patterns/Background/Background";
 import { useTheme } from "@src/theme/ThemeProvider";
+import { useTemplateConfig } from "@src/services/template/TemplateConfigContext";
 import React from "react";
 import Button from "@src/components/Button/Button";
 import Icon from "@src/components/Icon/Icon";
 import Text from "@src/components/Text/Text";
+import Image from "@src/components/Image/Image";
+import Feed from "@src/screens/HomeScreen/patterns/Feed/Feed";
 
 interface AboutScreenProps {
   children: React.ReactNode
@@ -14,6 +17,7 @@ interface AboutScreenProps {
 
 export default function AboutScreen({AboutScreenProps}) {
   const theme = useTheme();
+  const templateConfig = useTemplateConfig();
   const baseSize = '40px';
   return (
     <div>
@@ -26,69 +30,22 @@ export default function AboutScreen({AboutScreenProps}) {
       }}
     >
       <Background />
-      <Box
-      styleSheet={{
+      <Link href="/">
+      <Menu></Menu>
+      </Link>
+      <Box styleSheet={{
+        backgroundColor: theme.colors.neutral.x000,
+        marginTop: '-228px',
         width: '100%',
-        position: 'absolute',
-        left: 0, right: 0, top: 0,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        paddingVertical: '16px',
-        paddingHorizontal: '20px',
-        color: theme.colors.neutral.x000,
-      }}
-    >
-      <Button.Base
-        styleSheet={{
-          width: baseSize,
-          height: baseSize,
-          backgroundColor: theme.colors.primary.x500,
-          borderRadius: '100%',
-          alignItems: 'center',
-          justifyContent: 'center',
-          hover: {
-            backgroundColor: theme.colors.primary.x400,
-          },
-          focus: {
-            backgroundColor: theme.colors.primary.x600,
-          },
-        }}
-      >
-       <Link href="/">
-       <Text
-       styleSheet={{
-        color: theme.colors.neutral.x200,
-       }}
-       >
-          SG
-        </Text>
-       </Link>
-      </Button.Base>
-
-      <Button.Base
-        styleSheet={{
-          width: baseSize,
-          height: baseSize,
-          backgroundColor: theme.colors.neutral.x500,
-          borderRadius: '100%',
-          alignItems: 'center',
-          justifyContent: 'center',
-          hover: {
-            backgroundColor: theme.colors.neutral.x400,
-          },
-          focus: {
-            backgroundColor: theme.colors.neutral.x600,
-          },
-        }}
-      >
-        <Icon name="menu" />
-      </Button.Base>
-    </Box>
+        maxWidth: '683px',
+        borderRadius: '8px',
+        paddingVertical: '40px',
+        paddingHorizontal: '32px',
+      }}>
+        
       </Box>
       
-      <Link href="/">
-        Voltar para home
-      </Link>
+      </Box>
     </div>
   )
 }
